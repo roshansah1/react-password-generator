@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { FaClipboard } from 'react-icons/fa'
 import { useForm } from './useForm'
 import { getRandomChar, getSpecialChar } from './utils'
-import { toast } from 'react-hot-toast'
+import { toast } from 'react-hot-toast';
+import Button from '@mui/material/Button';
 
 const App = () => {
 
@@ -71,14 +72,14 @@ const App = () => {
             <input type="text" id="result" placeholder='Min 8 Char' readOnly 
               value={result}
             />
-            <div className='clipboard' onClick={handleClipboard}>
-              <FaClipboard />
+            <div className='clipboard' onClick={handleClipboard} title="Copy Password">
+              <Button id="button" variant="contained"> <FaClipboard id="button-two" /> </Button>
             </div>
           </div>
           <div>
-            <div className='field'>
+            <div className='field' title="Choose Length">
               <label htmlFor="length">Length</label>
-              <input 
+              <input
               type="number" 
               id="length" 
               min={8} 
@@ -88,7 +89,7 @@ const App = () => {
               onChange={setValues}
                />
             </div>
-            <div className='field'>
+            <div className='field' title="Include Capital Case">
               <label htmlFor="capital">Capital</label>
               <input type="checkbox" id="capital"
               name="capital"
@@ -97,7 +98,7 @@ const App = () => {
                />
             </div>
 
-            <div className='field'>
+            <div className='field' title="Include Small Case">
               <label htmlFor="small">Small</label>
               <input type="checkbox" id="small" 
                name="small"
@@ -106,7 +107,7 @@ const App = () => {
               />
             </div>
 
-            <div className='field'>
+            <div className='field' title="Include Number">
               <label htmlFor="number">Number</label>
               <input type="checkbox" id="number" 
                 name="number"
@@ -115,7 +116,7 @@ const App = () => {
               />
             </div>
 
-            <div className='field'>
+            <div className='field' title="Include Symbol">
               <label htmlFor="symbol">Symbol</label>
               <input type="checkbox" id="symbol" 
                 name="symbol"
@@ -124,7 +125,7 @@ const App = () => {
               />
             </div>
           </div>
-          <button type="submit">Generate Password</button>
+          <Button variant="contained" type="submit" title="Generate Random Password">Generate Password</Button>
         </form>
       </div>
     </section>
